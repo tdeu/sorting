@@ -1,0 +1,28 @@
+FUNCTION insertionSorting(var tab: ARRAY_OF FLOAT[5];) : ARRAY_OF FLOAT[5];
+VAR
+    i,j:INTEGER;
+    tampon:FLOAT;  
+BEGIN
+    FOR i FROM 1 TO tab.length-1 STEP 1  DO
+        tampon = tab[i];
+        j:=i-1;
+        FOR j FROM j TO 0 STEP -1  DO
+            IF (tampon < tab[j]) THEN
+                tab[j+1] = tab[j];
+            END_IF
+        END_FOR
+        tab[j+1] = tampon;
+    END_FOR
+    RETURN tab;
+END
+
+ALGORITHM sortingByInsertion;
+VAR
+    tableau: ARRAY_OF FLOAT[5];
+BEGIN
+    tableau:={4, 3, 9, 7, 2};
+    insertionSorting(tableau);
+    FOR i FROM 0 TO tableau.length-1 STEP 1  DO
+        write(tableau[i]);
+    END_FOR
+END
